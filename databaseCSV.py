@@ -7,10 +7,6 @@ filename = "baby.csv"
 #call this function if the date restrain changed, or first time running
 def recountCSV(restrain = None):
 
-    if restrain is None:
-        print("ERROR, NO RESTRAIN")
-        return
-
     df = pd.read_csv(filename)
     # restrain the data by year limits
     df = df[df['Year'] > restrain[0]-1]
@@ -55,8 +51,6 @@ def fetchid(id=None, name=None):
     c = conn.cursor()
 
     if id is not None:
-        # sql = f"SELECT newrank FROM Male WHERE newrank={id}"
-        # sql2 = f"SELECT newrank FROM Female WHERE newrank={id}"
         fetch1 = fetch2 = int(id)
     elif name is not None:
         sql = f"SELECT newrank FROM Male WHERE Male='{name}'"
