@@ -13,7 +13,7 @@ framedata2 = tk.Frame(root, width=100, height=100, bg="grey82")
 framedata2.grid(row=2, column=1, pady=10)
 labelinfo = tk.Label(root, text="")
 labelinfo.grid(row=3, columnspan=2)
-buttonSearch = tk.Button(root, text="Search")
+buttonSearch = tk.Button(root, text="Search", width=20, relief="ridge")
 buttonSearch.grid(row=4, columnspan=2)
 
 f1label = tk.Label(frame1, text="Year Range:", font="Helvetica 10 bold")
@@ -34,7 +34,7 @@ f2label.grid(row=2, column=0, columnspan=2, sticky="w", ipady=1)
 f2option = ["RANK", "NAME"]
 v = tk.StringVar()
 v.set(f2option[1])
-f2menu = tk.OptionMenu(frame1, v, *f2option)
+f2menu = tk.OptionMenu(frame1, v, *f2option, )
 f2menu.config(font="Helvetica 8")
 f2menu.grid(row=3, column=0, padx=10, columnspan=2)
 f2entry = tk.Entry(frame1, width=16)
@@ -112,7 +112,7 @@ def search(event=None):
     placeinFrame(framedata, data[0])
     placeinFrame(framedata2, data[1])
 
-    labelinfo["text"] = "Done"
+    labelinfo["text"] = ""
 
 def main():
     dbCSV.recountCSV(oldsearch)
